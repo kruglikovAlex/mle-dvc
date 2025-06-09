@@ -15,6 +15,10 @@ stages:
       hash: md5
       md5: 487948886135418e289ab228d3ecf1ab
       size: 827241
+      cloud:
+        yandex_pract_storage:
+          etag: 487948886135418e289ab228d3ecf1ab
+          version_id: 0006372374BC7775
   fit_model:
     cmd: python scripts/fit.py
     deps:
@@ -37,6 +41,10 @@ stages:
       hash: md5
       md5: d61d99da901a7bd2b6dd63a4aae83128
       size: 1100687
+      cloud:
+        yandex_pract_storage:
+          etag: d61d99da901a7bd2b6dd63a4aae83128
+          version_id: 0006372374BB9674
   evaluate_model:
     cmd: python scripts/evaluate.py
     deps:
@@ -62,3 +70,7 @@ stages:
       hash: md5
       md5: ca6fb95ba7d02e8e6ab7410bcbaebe96
       size: 78
+      cloud:
+        yandex_pract_storage:
+          etag: ca6fb95ba7d02e8e6ab7410bcbaebe96
+          version_id: 0006372374BC3CCD
