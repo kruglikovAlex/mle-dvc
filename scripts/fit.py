@@ -29,7 +29,7 @@ def fit_model():
 
     preprocessor = ColumnTransformer(
         [
-            ('binary', OneHotEncoder(drop='if_binary'), binary_cat_features.columns.tolist()),
+            ('binary', OneHotEncoder(drop=params['one_hot_drop']), binary_cat_features.columns.tolist()),
             ('cat', CatBoostEncoder(return_df=False), other_cat_features.columns.tolist()),
             ('num', StandardScaler(), num_features.columns.tolist())
         ],
@@ -45,7 +45,7 @@ def fit_model():
             ('model', model)
         ]
     )
-    pipeline.fit(data, data['target']) 
+    pipeline.fit(data, data[params['target_col']]) 
 
     # сохранение результата шага
     os.makedirs('models', exist_ok=True) # создание директории, если её ещё нет
