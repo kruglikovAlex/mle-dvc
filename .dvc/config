@@ -1,0 +1,6 @@
+[core]
+    remote = yandex_pract_storage
+['remote "yandex_pract_storage"']
+    url = s3://s3-student-mle-20250507-60d03b0a2f-freetrack
+    endpointurl = https://storage.yandexcloud.net
+    version_aware = true
