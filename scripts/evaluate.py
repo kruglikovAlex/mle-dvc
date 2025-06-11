@@ -6,6 +6,7 @@ import json
 import joblib
 
 def evaluate_model():
+    
     # Прочитаем файл с гиперпараметрами params.yaml
     with open('params.yaml', 'r') as fd:
         params = yaml.safe_load(fd) 
@@ -33,7 +34,7 @@ def evaluate_model():
 
     # сохраните результата кросс-валидации в cv_res.json
     os.makedirs('cv_results', exist_ok=True) # создание директории, если её ещё нет
-    with open('cv_results/cv_res.json', 'w') as fd:
+    with open('cv_results/cv_res.json', 'w') as fd: # запись в файл
         fd.write(json.dumps(cv_res))
 
 

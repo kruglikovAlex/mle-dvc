@@ -11,6 +11,7 @@ import yaml
 def create_connection():
 
     load_dotenv()
+    
     host = 'rc1b-uh7kdmcx67eomesf.mdb.yandexcloud.net' # os.environ.get('rc1b-uh7kdmcx67eomesf.mdb.yandexcloud.net')
     port = 6432 # os.environ.get('6432')
     db = 'playground_mle_20250507_60d03b0a2f' # os.environ.get('playground_mle_20250507_60d03b0a2f')

@@ -6,6 +6,7 @@ stages:
       - scripts/data.py
     params:
       - index_col
+      - retrain
     outs:
       - data/initial_data.csv
   fit_model:

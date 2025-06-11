@@ -5,11 +5,12 @@ stages:
     deps:
     - path: scripts/data.py
       hash: md5
-      md5: 9a8c63bfa917896a75e427dfa7993fe0
-      size: 1708
+      md5: d9c6a51af135ec61b304dd94782ea43a
+      size: 1713
     params:
       params.yaml:
         index_col: customer_id
+        retrain: true
     outs:
     - path: data/initial_data.csv
       hash: md5
@@ -28,8 +29,8 @@ stages:
       size: 827241
     - path: scripts/fit.py
       hash: md5
-      md5: 997ef29ab49128f5454020a44d778769
-      size: 1992
+      md5: 16a45977269fabbf09ebb99d034a40d6
+      size: 1997
     params:
       params.yaml:
         auto_class_weights: Balanced
@@ -40,19 +41,19 @@ stages:
     outs:
     - path: models/fitted_model.pkl
       hash: md5
-      md5: 6325565d52ee0e1aa4d27dbe36528de4
+      md5: e5021af9ea8338e2a133468ad748c929
       size: 1100687
   evaluate_model:
     cmd: python scripts/evaluate.py
     deps:
     - path: models/fitted_model.pkl
       hash: md5
-      md5: 6325565d52ee0e1aa4d27dbe36528de4
+      md5: e5021af9ea8338e2a133468ad748c929
       size: 1100687
     - path: scripts/evaluate.py
       hash: md5
-      md5: 39e7c95ccda98af333a75d43eb0a461d
-      size: 1375
+      md5: a20a38359a2916b1957a42bd051002e0
+      size: 1407
     params:
       params.yaml:
         index_col: customer_id
@@ -66,5 +67,5 @@ stages:
     outs:
     - path: cv_results/cv_res.json
       hash: md5
-      md5: 05c1fa9c9190c2f106dcb776f3880d3e
+      md5: 29d9fcc7918c8024317afbd7a5538ecc
       size: 78

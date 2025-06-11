@@ -12,6 +12,7 @@ import joblib
 
 # обучение модели
 def fit_model():
+    
     # Прочитаем файл с гиперпараметрами params.yaml
     with open('params.yaml', 'r') as fd:
         params = yaml.safe_load(fd) 
