@@ -35,22 +35,19 @@ stages:
         auto_class_weights: Balanced
         index_col: customer_id
         one_hot_drop: if_binary
+        retrain: true
         target_col: target
     outs:
     - path: models/fitted_model.pkl
       hash: md5
-      md5: d61d99da901a7bd2b6dd63a4aae83128
+      md5: 6325565d52ee0e1aa4d27dbe36528de4
       size: 1100687
-      cloud:
-        yandex_pract_storage:
-          etag: d61d99da901a7bd2b6dd63a4aae83128
-          version_id: 0006372374BB9674
   evaluate_model:
     cmd: python scripts/evaluate.py
     deps:
     - path: models/fitted_model.pkl
       hash: md5
-      md5: d61d99da901a7bd2b6dd63a4aae83128
+      md5: 6325565d52ee0e1aa4d27dbe36528de4
       size: 1100687
     - path: scripts/evaluate.py
       hash: md5
@@ -64,13 +61,10 @@ stages:
         - roc_auc
         n_jobs: -1
         n_splits: 5
+        retrain: true
         target_col: target
     outs:
     - path: cv_results/cv_res.json
       hash: md5
-      md5: ca6fb95ba7d02e8e6ab7410bcbaebe96
+      md5: 05c1fa9c9190c2f106dcb776f3880d3e
       size: 78
-      cloud:
-        yandex_pract_storage:
-          etag: ca6fb95ba7d02e8e6ab7410bcbaebe96
-          version_id: 0006372374BC3CCD
